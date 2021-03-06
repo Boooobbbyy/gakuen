@@ -28,7 +28,8 @@ class Modelppdb extends Model
         'jenis_tinggal',
         'transportasi',
         'status',
-        'pelatihan'
+        'pelatihan',
+        'nilai'
     ];
 
     public function getsiswa($id)

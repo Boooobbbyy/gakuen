@@ -221,6 +221,15 @@
                             <?php } ?>
                         </select>
                     </div>
+
+                    <div class="form-group col-md-6 col-12">
+                        <label> <i class="mdi mdi-alpha-j-circle-outline"></i>
+                            nilai
+                        </label>
+                        <input type="text" id="nilai" name="nilai" value="<?= esc($nilai) ?>" class="form-control" readonly>
+                    </div>
+
+
                 </div>
 
                 <button class="btn btn-primary btnsimpan"><i class="mdi mdi-content-save-all"></i> Update</button>
@@ -275,6 +284,7 @@
                 nama_ayah: $('input#nama_ayah').val(),
                 nama_ibu: $('input#nama_ibu').val(),
                 pelatihan: $('select#pelatihan').val(),
+                nilai: $('input#nilai').val(),
             },
             dataType: "json",
             beforeSend: function() {

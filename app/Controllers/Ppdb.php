@@ -138,6 +138,13 @@ class Ppdb extends BaseController
                         'required' => '{field} tidak boleh kosong',
                     ]
                 ],
+                'nilai' => [
+                    'label' => 'nilai',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong',
+                    ]
+                ],
             ]);
             if (!$valid) {
                 $msg = [
@@ -158,6 +165,7 @@ class Ppdb extends BaseController
                         'no_telp' => $validation->getError('no_telp'),
                         'jurusan' => $validation->getError('jurusan'),
                         'pelatihan' => $validation->getError('pelatihan'),
+                        'nilai' => $validation->getError('nilai'),
                     ]
                 ];
             } else {
@@ -182,6 +190,7 @@ class Ppdb extends BaseController
                     'tgl_daftar' => $this->request->getVar('tgl_daftar'),
                     'status' => $this->request->getVar('status'),
                     'pelatihan' => $this->request->getVar('pelatihan'),
+                    'nilai' => $this->request->getVar('nilai'),
                 ];
 
                 $this->ppdb->insert($simpandata);
@@ -387,7 +396,8 @@ class Ppdb extends BaseController
             'foto_siswa'         => $list['foto_siswa'],
             'foto_ijazah'        => $list['foto_ijazah'],
             'status'             => $list['status'],
-            'pelatihan'              => $list['pelatihan'],
+            'pelatihan'          => $list['pelatihan'],
+            'nilai'              => $list['nilai'],
             'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
         ];
         return view('ppdb/login/profile', $data);
@@ -504,6 +514,13 @@ class Ppdb extends BaseController
                         'required' => '{field} tidak boleh kosong',
                     ]
                 ],
+                'nilai' => [
+                    'label' => 'nilai',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong',
+                    ]
+                ],
             ]);
             if (!$valid) {
                 $msg = [
@@ -523,6 +540,7 @@ class Ppdb extends BaseController
                         'no_telp' => $validation->getError('no_telp'),
                         'jurusan' => $validation->getError('jurusan'),
                         'pelatihan' => $validation->getError('pelatihan'),
+                        'nilai' => $validation->getError('nilai'),
                     ]
                 ];
             } else {
@@ -542,6 +560,7 @@ class Ppdb extends BaseController
                     'no_telp' => $this->request->getVar('no_telp'),
                     'jurusan' => $this->request->getVar('jurusan'),
                     'pelatihan' => $this->request->getVar('pelatihan'),
+                    'nilai' => $this->request->getVar('nilai'),
                     'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
                 ];
                 $ppdb_id = $this->request->getVar('ppdb_id');
@@ -716,6 +735,7 @@ class Ppdb extends BaseController
             'tgl_lahir'      => $list->tgl_lahir,
             'tmp_lahir'      => $list->tmp_lahir,
             'pelatihan'      => $list->pelatihan,
+            'nilai'        => $list->nilai,
             'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
 
         ];

@@ -175,7 +175,7 @@ $konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
                                 </select><br>
 
                                 <label for="pelatihan">pelatihan *</label>
-                                <select name="pelatihan" id="pelatihan" class="js-example-basic-single">
+                                <select name="pelatihan" id="pelatihan" class="form-control required">
                                     <option Disabled=true Selected=true></option>
                                     <?php foreach ($mapel as $key => $data) { ?>
                                         <option value="<?= $data['mapel_id'] ?>"><?= $data['nama_mapel'] ?></option>
@@ -389,6 +389,7 @@ $konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
                         jurusan: $('select#jurusan').val(),
                         foto_siswa: 'default.png',
                         foto_ijazah: 'default.png',
+                        pelatihan: $('select#pelatihan').val(),
                         tgl_daftar: date,
                         status: 'Proses'
                     },

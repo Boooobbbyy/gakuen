@@ -951,6 +951,7 @@ class Siswa extends BaseController
                 'foto_ijazah'   => $list['foto_ijazah'],
                 'status'        => $list['status'],
                 'pelatihan'        => $list['pelatihan'],
+                'nilai'        => $list['nilai'],
 
             ];
             $msg = [
@@ -980,6 +981,7 @@ class Siswa extends BaseController
                 'no_telp' => $this->request->getVar('no_telp'),
                 'status' => $this->request->getVar('status'),
                 'pelatihan' => $this->request->getVar('pelatihan'),
+                'nilai' => $this->request->getVar('nilai'),
             ];
 
             $ppdb_id = $this->request->getVar('ppdb_id');

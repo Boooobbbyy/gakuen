@@ -111,7 +111,7 @@ $konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
                             </tr>
                             <tr>
                                 <td>Nilai</td>
-                                <td>: 100</td>
+                                <td>: <?= $nilai ?></td>
                             </tr>
                         </tbody>
                     </table>

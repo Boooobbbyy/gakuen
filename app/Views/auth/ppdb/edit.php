@@ -113,6 +113,12 @@
                         <input type="text" class="form-control" id="pelatihan" value="<?= $pelatihan ?>" name="pelatihan">
 
                     </div>
+
+                    <div class="form-group col-md-6 col-12">
+                        <label>nilai</label>
+                        <input type="text" class="form-control" id="nilai" value="<?= $nilai ?>" name="nilai">
+
+                    </div>
                 </div>
 
             </div>
