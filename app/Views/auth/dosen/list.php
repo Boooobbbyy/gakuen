@@ -1,22 +1,23 @@
-<?= form_open('konfigurasi/hapusalluser', ['class' => 'formhapus']) ?>
+<?= form_open('dosen/hapusall', ['class' => 'formhapus']) ?>
 
 <button type="submit" class="btn btn-danger btn-sm">
     <i class="fa fa-trash"></i> Hapus yang diceklist
 </button>
 
 <hr>
-<table id="listuser" class="table table-striped dt-responsive " style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+<table id="listdosen" class="table table-striped dt-responsive" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
     <thead>
         <tr>
             <th>
                 <input type="checkbox" id="centangSemua">
             </th>
             <th>#</th>
-            <th>Username</th>
+            <th>Nip</th>
             <th>Nama</th>
-            <th>Email</th>
-            <th>Level</th>
-            <th>Status</th>
+            <th>Tempat & Tgl Lahir</th>
+            <th>Mapel</th>
+            <th>Alamat</th>
+            <th>Pendidikan</th>
             <th>Foto</th>
             <th>Aksi</th>
         </tr>
@@ -29,46 +30,24 @@
             $nomor++; ?>
             <tr>
                 <td>
-                    <input type="checkbox" name="user_id[]" class="centangUserid" value="<?= $data['user_id'] ?>">
+                    <input type="checkbox" name="dosen_id[]" class="centangdosenid" value="<?= $data['dosen_id'] ?>">
                 </td>
                 <td><?= $nomor ?></td>
-                <td><?= esc($data['username']) ?></td>
+                <td><?= esc($data['nip']) ?></td>
                 <td><?= esc($data['nama']) ?></td>
-                <td><?= esc($data['email']) ?></td>
+                <td><?= esc($data['tmp_lahir']) ?>, <?= esc($data['tgl_lahir']) ?></td>
+                <td><?= esc($data['nama_mapel']) ?></td>
+                <td><?= esc($data['alamat']) ?></td>
+                <td><?= esc($data['pendidikan']) ?></td>
+
+                <td class="text-center"><img onclick="gambar('<?= $data['dosen_id'] ?>')" src="<?= base_url('img/dosen/thumb/' . 'thumb_' . $data['foto']) ?>" width="120px" class="img-thumbnail"></td>
                 <td>
-                    <?php if ($data['level'] == '2') { ?>
-                        <h6>
-                            <span class="badge badge-primary">Admin</span>
-                        </h6>
-                    <?php } else { ?>
-                        <h6>
-                            <span class="badge badge-info">Dosen</span>
-                        </h6>
-                    <?php } ?>
-                </td>
-                <td>
-                    <?php if ($data['active'] == '1') { ?>
-                        <h6>
-                            <span class="badge badge-success">Aktif</span>
-                        </h6>
-                    <?php } else { ?>
-                        <h6>
-                            <span class="badge badge-danger">Tidak Aktif</span>
-                        </h6>
-                    <?php } ?>
-                </td>
-                <td class="text-center"><img onclick="gambar('<?= $data['user_id'] ?>')" src="<?= base_url('img/user/thumb/' . 'thumb_' . $data['foto']) ?>" width="120px" class="img-thumbnail"></td>
-                <td>
-                    <?php if ($data['username'] != 'admin') { ?>
-                        <button type="button" class="btn btn-primary btn-sm" onclick="edit('<?= $data['user_id'] ?>')">
-                            <i class="fa fa-edit"></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-sm" onclick="hapus('<?= $data['user_id'] ?>')">
-                            <i class="fa fa-trash"></i>
-                        </button>
-                        <button type="button" onclick="toggle('<?= $data['user_id'] ?>')" class="btn btn-circle btn-sm <?= $data['active'] ? 'btn-secondary' : 'btn-success' ?>" title="<?= $data['active'] ? 'Nonaktifkan' : 'Aktifkan' ?>"><i class="fa fa-fw fa-power-off"></i>
-                        </button>
-                    <?php } ?>
+                    <button type="button" class="btn btn-primary btn-sm" onclick="edit('<?= $data['dosen_id'] ?>')">
+                        <i class="fa fa-edit"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm" onclick="hapus('<?= $data['dosen_id'] ?>')">
+                        <i class="fa fa-trash"></i>
+                    </button>
                 </td>
             </tr>
 
@@ -78,19 +57,20 @@
 <?= form_close() ?>
 <script>
     $(document).ready(function() {
-        $('#listuser').DataTable();
+        $('#listdosen').DataTable({
 
+        });
         $('#centangSemua').click(function(e) {
             if ($(this).is(':checked')) {
-                $('.centangUserid').prop('checked', true);
+                $('.centangdosenid').prop('checked', true);
             } else {
-                $('.centangUserid').prop('checked', false);
+                $('.centangdosenid').prop('checked', false);
             }
         });
 
         $('.formhapus').submit(function(e) {
             e.preventDefault();
-            let jmldata = $('.centangUserid:checked');
+            let jmldata = $('.centangdosenid:checked');
             if (jmldata.length === 0) {
                 Swal.fire({
                     icon: 'error',
@@ -101,8 +81,8 @@
                 })
             } else {
                 Swal.fire({
-                    title: 'Hapus user',
-                    text: `Apakah anda yakin ingin menghapus sebanyak ${jmldata.length} user?`,
+                    title: 'Hapus data',
+                    text: `Apakah anda yakin ingin menghapus sebanyak ${jmldata.length} data?`,
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
@@ -123,7 +103,7 @@
                                     showConfirmButton: false,
                                     timer: 1500
                                 });
-                                listuser();
+                                listdosen();
                             }
                         });
                     }
@@ -132,34 +112,15 @@
         });
     });
 
-    function toggle(user_id) {
-        $.ajax({
-            type: "post",
-            url: "<?= site_url('konfigurasi/toggle') ?>",
-            data: {
-                user_id: user_id
-            },
-            dataType: "json",
-            success: function(response) {
-                if (response.sukses) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: response.sukses,
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                    listuser();
-                }
-            }
-        });
-    }
 
-    function edit(user_id) {
+
+
+    function edit(dosen_id) {
         $.ajax({
             type: "post",
-            url: "<?= site_url('konfigurasi/formedituser') ?>",
+            url: "<?= site_url('dosen/formedit') ?>",
             data: {
-                user_id: user_id
+                dosen_id: dosen_id
             },
             dataType: "json",
             success: function(response) {
@@ -171,10 +132,10 @@
         });
     }
 
-    function hapus(user_id) {
+    function hapus(dosen_id) {
         Swal.fire({
-            title: 'Hapus user?',
-            text: `Apakah anda yakin menghapus user?`,
+            title: 'Hapus data?',
+            text: `Apakah anda yakin menghapus data?`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -184,11 +145,11 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "<?= site_url('konfigurasi/hapususer') ?>",
+                    url: "<?= site_url('dosen/hapus') ?>",
                     type: "post",
                     dataType: "json",
                     data: {
-                        user_id: user_id
+                        dosen_id: dosen_id
                     },
                     success: function(response) {
                         if (response.sukses) {
@@ -199,7 +160,7 @@
                                 showConfirmButton: false,
                                 timer: 1500
                             });
-                            listuser();
+                            listdosen();
                         }
                     }
                 });
@@ -207,12 +168,12 @@
         })
     }
 
-    function gambar(user_id) {
+    function gambar(dosen_id) {
         $.ajax({
             type: "post",
-            url: "<?= site_url('konfigurasi/formuploaduser') ?>",
+            url: "<?= site_url('dosen/formupload') ?>",
             data: {
-                user_id: user_id
+                dosen_id: dosen_id
             },
             dataType: "json",
             success: function(response) {

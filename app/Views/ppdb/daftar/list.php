@@ -55,7 +55,7 @@ $konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
                                 <img class="d-block img-fluid" src="<?= base_url('assets/ppdb') ?>/images/bg2.png" alt="First slide">
                                 <div class="carousel-caption d-none d-md-block">
                                     <div class="banner-text">
-                                        <h2>PPDB <br> SMA Jujutsu</h2>
+                                        <h2>PPDB <br> <?= $konfigurasi['nama_web'] ?></h2>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
                                     </div>
                                 </div>
@@ -173,6 +173,15 @@ $konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
                                     <option value="IPA">IPA</option>
                                     <option value="IPS">IPS</option>
                                 </select><br>
+
+                                <label for="pelatihan">pelatihan *</label>
+                                <select name="pelatihan" id="pelatihan" class="js-example-basic-single">
+                                    <option Disabled=true Selected=true></option>
+                                    <?php foreach ($mapel as $key => $data) { ?>
+                                        <option value="<?= $data['mapel_id'] ?>"><?= $data['nama_mapel'] ?></option>
+                                    <?php } ?>
+                                </select>
+
                                 <label>Terms and Conditions</label><br>
                                 <input id="acceptTerms-2" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms-2">I agree with the Terms and Conditions.</label>
                             </fieldset>

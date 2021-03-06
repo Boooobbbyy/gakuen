@@ -208,6 +208,21 @@
                         <input type="text" id="nama_ibu" name="nama_ibu" value="<?= esc($nama_ibu) ?>" class="form-control">
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="form-group col-md-6 col-12">
+                        <label> <i class="mdi mdi-shield-check-outline"></i>
+                            Pelatihan
+                        </label>
+                        <select name="pelatihan" id="pelatihan" class="form-control">
+                            <option Disabled=true Selected=true></option>
+                            <?php foreach ($mapel as $key => $data) { ?>
+                                <option value="<?= $data['mapel_id'] ?>"><?= $data['nama_mapel'] ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
+
                 <button class="btn btn-primary btnsimpan"><i class="mdi mdi-content-save-all"></i> Update</button>
             </div>
             <?= form_close() ?>
@@ -259,6 +274,7 @@
                 tmp_lahir: $('input#tmp_lahir').val(),
                 nama_ayah: $('input#nama_ayah').val(),
                 nama_ibu: $('input#nama_ibu').val(),
+                pelatihan: $('select#pelatihan').val(),
             },
             dataType: "json",
             beforeSend: function() {

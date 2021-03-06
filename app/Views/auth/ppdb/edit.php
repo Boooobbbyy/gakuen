@@ -41,6 +41,9 @@
                         <input type="text" class="form-control" id="alamat" value="<?= $alamat ?>" name="alamat" readonly>
                     </div>
                 </div>
+
+
+
                 <div class="row">
                     <div class="form-group col-md-3 col-12">
                         <label>Tanggal Lahir</label>
@@ -78,6 +81,7 @@
                         <label>No Telp/Whatsapp</label>
                         <input type="text" class="form-control" id="no_telp" value="<?= $no_telp ?>" name="no_telp" readonly>
                     </div>
+
                 </div>
                 <br>
                 <div class="row">
@@ -103,6 +107,11 @@
                             <option value="Gagal" <?php if ($status == 'Gagal') echo "selected"; ?>>Tidak Lulus</option>
                         </select>
                         <small>*Klik foto untuk melihat detail.</small>
+                    </div>
+                    <div class="form-group col-md-6 col-12">
+                        <label>pelatihan</label>
+                        <input type="text" class="form-control" id="pelatihan" value="<?= $pelatihan ?>" name="pelatihan">
+
                     </div>
                 </div>
 

@@ -52,7 +52,7 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex justify-content-center align-items-center">
         <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-            <h1>SMA Jujutsu</h1>
+            <h1><?= $konfigurasi['nama_web'] ?></h1>
             <h2><?= $konfigurasi['deskripsi'] ?> </h2>
         </div>
     </section><!-- End Hero -->

@@ -950,6 +950,7 @@ class Siswa extends BaseController
                 'foto_siswa'    => $list['foto_siswa'],
                 'foto_ijazah'   => $list['foto_ijazah'],
                 'status'        => $list['status'],
+                'pelatihan'        => $list['pelatihan'],
 
             ];
             $msg = [
@@ -978,6 +979,7 @@ class Siswa extends BaseController
                 'jenis_tinggal' => $this->request->getVar('jenis_tinggal'),
                 'no_telp' => $this->request->getVar('no_telp'),
                 'status' => $this->request->getVar('status'),
+                'pelatihan' => $this->request->getVar('pelatihan'),
             ];
 
             $ppdb_id = $this->request->getVar('ppdb_id');

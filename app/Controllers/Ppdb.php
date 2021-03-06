@@ -14,6 +14,7 @@ class Ppdb extends BaseController
     {
         $data = [
             'title' => 'Pendaftaran - SMA Jujutsu',
+            'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
         ];
         return view('ppdb/daftar/list', $data);
     }
@@ -72,59 +73,66 @@ class Ppdb extends BaseController
                     'rules' => 'required',
                     'errors' => [
                         'required' => '{field} tidak boleh kosong',
-                    ]
+                    ],
+                    'asal_sekolah' => [
+                        'label' => 'Asal Sekolah',
+                        'rules' => 'required',
+                        'errors' => [
+                            'required' => '{field} tidak boleh kosong',
+                        ]
+                    ],
+                    'nama_ayah' => [
+                        'label' => 'Nama Ayah',
+                        'rules' => 'required',
+                        'errors' => [
+                            'required' => '{field} tidak boleh kosong',
+                        ]
+                    ],
+                    'nama_ibu' => [
+                        'label' => 'Nama Ibu',
+                        'rules' => 'required',
+                        'errors' => [
+                            'required' => '{field} tidak boleh kosong',
+                        ]
+                    ],
+                    'alamat' => [
+                        'label' => 'Alamat',
+                        'rules' => 'required',
+                        'errors' => [
+                            'required' => '{field} tidak boleh kosong',
+                        ]
+                    ],
+                    'jenis_tinggal' => [
+                        'label' => 'Jenis Tinggal',
+                        'rules' => 'required',
+                        'errors' => [
+                            'required' => '{field} tidak boleh kosong',
+                        ]
+                    ],
+                    'transportasi' => [
+                        'label' => 'Transportasi',
+                        'rules' => 'required',
+                        'errors' => [
+                            'required' => '{field} tidak boleh kosong',
+                        ]
+                    ],
+                    'no_telp' => [
+                        'label' => 'No Telp',
+                        'rules' => 'required',
+                        'errors' => [
+                            'required' => '{field} tidak boleh kosong',
+                        ]
+                    ],
+                    'jurusan' => [
+                        'label' => 'Jurusan',
+                        'rules' => 'required',
+                        'errors' => [
+                            'required' => '{field} tidak boleh kosong',
+                        ]
+                    ],
                 ],
-                'asal_sekolah' => [
-                    'label' => 'Asal Sekolah',
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => '{field} tidak boleh kosong',
-                    ]
-                ],
-                'nama_ayah' => [
-                    'label' => 'Nama Ayah',
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => '{field} tidak boleh kosong',
-                    ]
-                ],
-                'nama_ibu' => [
-                    'label' => 'Nama Ibu',
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => '{field} tidak boleh kosong',
-                    ]
-                ],
-                'alamat' => [
-                    'label' => 'Alamat',
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => '{field} tidak boleh kosong',
-                    ]
-                ],
-                'jenis_tinggal' => [
-                    'label' => 'Jenis Tinggal',
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => '{field} tidak boleh kosong',
-                    ]
-                ],
-                'transportasi' => [
-                    'label' => 'Transportasi',
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => '{field} tidak boleh kosong',
-                    ]
-                ],
-                'no_telp' => [
-                    'label' => 'No Telp',
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => '{field} tidak boleh kosong',
-                    ]
-                ],
-                'jurusan' => [
-                    'label' => 'Jurusan',
+                'pelatihan' => [
+                    'label' => 'pelatihan',
                     'rules' => 'required',
                     'errors' => [
                         'required' => '{field} tidak boleh kosong',
@@ -149,6 +157,7 @@ class Ppdb extends BaseController
                         'alamat' => $validation->getError('alamat'),
                         'no_telp' => $validation->getError('no_telp'),
                         'jurusan' => $validation->getError('jurusan'),
+                        'pelatihan' => $validation->getError('pelatihan'),
                     ]
                 ];
             } else {
@@ -172,6 +181,7 @@ class Ppdb extends BaseController
                     'foto_ijazah' => $this->request->getVar('foto_ijazah'),
                     'tgl_daftar' => $this->request->getVar('tgl_daftar'),
                     'status' => $this->request->getVar('status'),
+                    'pelatihan' => $this->request->getVar('pelatihan'),
                 ];
 
                 $this->ppdb->insert($simpandata);
@@ -377,6 +387,8 @@ class Ppdb extends BaseController
             'foto_siswa'         => $list['foto_siswa'],
             'foto_ijazah'        => $list['foto_ijazah'],
             'status'             => $list['status'],
+            'pelatihan'              => $list['pelatihan'],
+            'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
         ];
         return view('ppdb/login/profile', $data);
     }
@@ -485,6 +497,13 @@ class Ppdb extends BaseController
                         'required' => '{field} tidak boleh kosong',
                     ]
                 ],
+                'pelatihan' => [
+                    'label' => 'pelatihan',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong',
+                    ]
+                ],
             ]);
             if (!$valid) {
                 $msg = [
@@ -503,6 +522,7 @@ class Ppdb extends BaseController
                         'alamat' => $validation->getError('alamat'),
                         'no_telp' => $validation->getError('no_telp'),
                         'jurusan' => $validation->getError('jurusan'),
+                        'pelatihan' => $validation->getError('pelatihan'),
                     ]
                 ];
             } else {
@@ -521,6 +541,8 @@ class Ppdb extends BaseController
                     'transportasi' => $this->request->getVar('transportasi'),
                     'no_telp' => $this->request->getVar('no_telp'),
                     'jurusan' => $this->request->getVar('jurusan'),
+                    'pelatihan' => $this->request->getVar('pelatihan'),
+                    'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
                 ];
                 $ppdb_id = $this->request->getVar('ppdb_id');
                 $this->ppdb->update($ppdb_id, $simpandata);
@@ -693,6 +715,9 @@ class Ppdb extends BaseController
             'tgl_daftar'     => $list->tgl_daftar,
             'tgl_lahir'      => $list->tgl_lahir,
             'tmp_lahir'      => $list->tmp_lahir,
+            'pelatihan'      => $list->pelatihan,
+            'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
+
         ];
         return view('ppdb/login/cetak', $data);
     }

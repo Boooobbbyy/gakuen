@@ -45,7 +45,7 @@
                     <select name="level" id="level" class="form-control">
                         <option Disabled=true Selected=true>Pilih</option>
                         <option value="2">Admin</option>
-                        <option value="1">Author</option>
+                        <option value="1">Dosen</option>
                     </select>
                     <div class="invalid-feedback errorLevel">
                     </div>

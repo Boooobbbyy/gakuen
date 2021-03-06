@@ -105,6 +105,14 @@ $konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
                                 <td>No Telp</td>
                                 <td>: <?= $no_telp ?></td>
                             </tr>
+                            <tr>
+                                <td>Pelatihan</td>
+                                <td>: <?= $pelatihan ?></td>
+                            </tr>
+                            <tr>
+                                <td>Nilai</td>
+                                <td>: 100</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

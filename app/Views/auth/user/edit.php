@@ -45,7 +45,7 @@
                     <label>Level</label>
                     <select name="level" id="level" class="form-control">
                         <option value="2" <?php if ($level == '2') echo "selected"; ?>>Admin</option>
-                        <option value="1" <?php if ($level == '1') echo "selected"; ?>>Author</option>
+                        <option value="1" <?php if ($level == '1') echo "selected"; ?>>Dosen</option>
                     </select>
                     <div class="invalid-feedback errorLevel">
                     </div>
