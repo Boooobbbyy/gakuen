@@ -184,6 +184,7 @@ $konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
 
                                 <label>Terms and Conditions</label><br>
                                 <input id="acceptTerms-2" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms-2">I agree with the Terms and Conditions.</label>
+                                <input type="hidden" id="nilai" name="nilai" value="0">
                             </fieldset>
                         </form>
                     </div>
@@ -391,7 +392,8 @@ $konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
                         foto_ijazah: 'default.png',
                         pelatihan: $('select#pelatihan').val(),
                         tgl_daftar: date,
-                        status: 'Proses'
+                        status: 'Proses',
+                        nilai: $('input#nilai').val(),
                     },
                     dataType: "json",
                     success: function(response) {

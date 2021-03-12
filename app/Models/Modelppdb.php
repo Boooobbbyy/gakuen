@@ -35,6 +35,7 @@ class Modelppdb extends Model
     public function getsiswa($id)
     {
         return $this->table('ppdb')
+            ->join('mapel', 'mapel.mapel_id = ppdb.pelatihan')
             ->like('status', 'lulus')
             ->where('ppdb_id', $id)
             ->get()->getRow();
