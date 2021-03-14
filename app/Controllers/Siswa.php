@@ -14,6 +14,7 @@ class Siswa extends BaseController
         }
         $data = [
             'title' => 'Siswa - SMA Jujutsu',
+            'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
         ];
         return view('auth/siswa/index', $data);
     }
@@ -23,7 +24,8 @@ class Siswa extends BaseController
         if ($this->request->isAJAX()) {
             $data = [
                 'title' => 'List Siswa - SMA Jujutsu',
-                'list' => $this->siswa->list()
+                'list' => $this->siswa->list(),
+                'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
 
             ];
             $msg = [
@@ -907,6 +909,7 @@ class Siswa extends BaseController
     {
         $data = [
             'title' => 'List Peserta PPDB - SMA Jujutsu',
+            'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
         ];
         return view('auth/ppdb/index', $data);
     }
@@ -916,6 +919,7 @@ class Siswa extends BaseController
         if ($this->request->isAJAX()) {
             $data = [
                 'title' => 'List Peserta PPDB - SMA Jujutsu',
+                'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll(),
                 'list' => $this->ppdb->orderBy('ppdb_id', 'ASC')->findAll()
             ];
             $msg = [
@@ -950,8 +954,9 @@ class Siswa extends BaseController
                 'foto_siswa'    => $list['foto_siswa'],
                 'foto_ijazah'   => $list['foto_ijazah'],
                 'status'        => $list['status'],
-                'pelatihan'        => $list['pelatihan'],
+                'mapel_id'        => $list['mapel_id'],
                 'nilai'        => $list['nilai'],
+                'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
 
             ];
             $msg = [
@@ -980,8 +985,9 @@ class Siswa extends BaseController
                 'jenis_tinggal' => $this->request->getVar('jenis_tinggal'),
                 'no_telp' => $this->request->getVar('no_telp'),
                 'status' => $this->request->getVar('status'),
-                'pelatihan' => $this->request->getVar('pelatihan'),
+                'mapel_id' => $this->request->getVar('mapel_id'),
                 'nilai' => $this->request->getVar('nilai'),
+                'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
             ];
 
             $ppdb_id = $this->request->getVar('ppdb_id');

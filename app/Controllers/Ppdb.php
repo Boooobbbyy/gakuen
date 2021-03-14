@@ -131,7 +131,7 @@ class Ppdb extends BaseController
                         ]
                     ],
                 ],
-                'pelatihan' => [
+                'mapel_id' => [
                     'label' => 'pelatihan',
                     'rules' => 'required',
                     'errors' => [
@@ -164,7 +164,7 @@ class Ppdb extends BaseController
                         'alamat' => $validation->getError('alamat'),
                         'no_telp' => $validation->getError('no_telp'),
                         'jurusan' => $validation->getError('jurusan'),
-                        'pelatihan' => $validation->getError('pelatihan'),
+                        'mapel_id' => $validation->getError('mapel_id'),
                         'nilai' => $validation->getError('nilai'),
                     ]
                 ];
@@ -189,7 +189,7 @@ class Ppdb extends BaseController
                     'foto_ijazah' => $this->request->getVar('foto_ijazah'),
                     'tgl_daftar' => $this->request->getVar('tgl_daftar'),
                     'status' => $this->request->getVar('status'),
-                    'pelatihan' => $this->request->getVar('pelatihan'),
+                    'mapel_id' => $this->request->getVar('mapel_id'),
                     'nilai' => $this->request->getVar('nilai'),
                 ];
 
@@ -396,7 +396,7 @@ class Ppdb extends BaseController
             'foto_siswa'         => $list['foto_siswa'],
             'foto_ijazah'        => $list['foto_ijazah'],
             'status'             => $list['status'],
-            'pelatihan'          => $list['pelatihan'],
+            'mapel_id'          => $list['mapel_id'],
             'nilai'              => $list['nilai'],
             'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
         ];
@@ -507,7 +507,7 @@ class Ppdb extends BaseController
                         'required' => '{field} tidak boleh kosong',
                     ]
                 ],
-                'pelatihan' => [
+                'mapel_id' => [
                     'label' => 'pelatihan',
                     'rules' => 'required',
                     'errors' => [
@@ -539,7 +539,7 @@ class Ppdb extends BaseController
                         'alamat' => $validation->getError('alamat'),
                         'no_telp' => $validation->getError('no_telp'),
                         'jurusan' => $validation->getError('jurusan'),
-                        'pelatihan' => $validation->getError('pelatihan'),
+                        'mapel_id' => $validation->getError('mapel_id'),
                         'nilai' => $validation->getError('nilai'),
                     ]
                 ];
@@ -559,7 +559,7 @@ class Ppdb extends BaseController
                     'transportasi' => $this->request->getVar('transportasi'),
                     'no_telp' => $this->request->getVar('no_telp'),
                     'jurusan' => $this->request->getVar('jurusan'),
-                    'pelatihan' => $this->request->getVar('pelatihan'),
+                    'mapel_id' => $this->request->getVar('mapel_id'),
                     'nilai' => $this->request->getVar('nilai'),
                     'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
                 ];
@@ -720,6 +720,7 @@ class Ppdb extends BaseController
         $id = session()->get('ppdb_id');
         $list =  $this->ppdb->getsiswa($id);
         if (!isset($list)) return redirect()->to('/ppdb');
+
         $data = [
             'title'          => 'PPDB - SMA Jujutsu',
             'ppdb_id'        => $list->ppdb_id,
@@ -734,7 +735,7 @@ class Ppdb extends BaseController
             'tgl_daftar'     => $list->tgl_daftar,
             'tgl_lahir'      => $list->tgl_lahir,
             'tmp_lahir'      => $list->tmp_lahir,
-            'pelatihan'      => $list->pelatihan,
+            'mapel_id'      => $list->nama_mapel,
             'nilai'        => $list->nilai,
             'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
 

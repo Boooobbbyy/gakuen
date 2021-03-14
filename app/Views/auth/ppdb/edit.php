@@ -110,8 +110,12 @@
                     </div>
                     <div class="form-group col-md-6 col-12">
                         <label>pelatihan</label>
-                        <input type="text" class="form-control" id="pelatihan" value="<?= $pelatihan ?>" name="pelatihan">
-
+                        <select name="mapel_id" id="mapel_id" class="form-control">
+                            <option Disabled=true Selected=true></option>
+                            <?php foreach ($mapel as $key => $data) { ?>
+                                <option value="<?= $data['mapel_id'] ?>" <?php if ($data['mapel_id'] == $mapel_id) echo "selected"; ?>><?= $data['nama_mapel'] ?></option>
+                            <?php } ?>
+                        </select>
                     </div>
 
                     <div class="form-group col-md-6 col-12">

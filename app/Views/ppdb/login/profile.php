@@ -212,12 +212,12 @@
                 <div class="row">
                     <div class="form-group col-md-6 col-12">
                         <label> <i class="mdi mdi-shield-check-outline"></i>
-                            Pelatihan
+                            mapel_id
                         </label>
-                        <select name="pelatihan" id="pelatihan" class="form-control">
+                        <select name="mapel_id" id="mapel_id" class="form-control">
                             <option Disabled=true Selected=true></option>
                             <?php foreach ($mapel as $key => $data) { ?>
-                                <option value="<?= $data['mapel_id'] ?>"><?= $data['nama_mapel'] ?></option>
+                                <option value="<?= $data['mapel_id'] ?>" <?php if ($data['mapel_id'] == $mapel_id) echo "selected"; ?>><?= $data['nama_mapel'] ?></option>
                             <?php } ?>
                         </select>
                     </div>
@@ -283,7 +283,7 @@
                 tmp_lahir: $('input#tmp_lahir').val(),
                 nama_ayah: $('input#nama_ayah').val(),
                 nama_ibu: $('input#nama_ibu').val(),
-                pelatihan: $('select#pelatihan').val(),
+                mapel_id: $('select#mapel_id').val(),
                 nilai: $('input#nilai').val(),
             },
             dataType: "json",

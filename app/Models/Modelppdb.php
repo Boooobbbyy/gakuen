@@ -28,14 +28,14 @@ class Modelppdb extends Model
         'jenis_tinggal',
         'transportasi',
         'status',
-        'pelatihan',
+        'mapel_id',
         'nilai'
     ];
 
     public function getsiswa($id)
     {
         return $this->table('ppdb')
-            ->join('mapel', 'mapel.mapel_id = ppdb.pelatihan')
+            ->join('mapel', 'mapel.mapel_id = ppdb.mapel_id')
             ->like('status', 'lulus')
             ->where('ppdb_id', $id)
             ->get()->getRow();

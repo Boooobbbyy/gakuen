@@ -107,7 +107,7 @@ $konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
                             </tr>
                             <tr>
                                 <td>Pelatihan</td>
-                                <td>: <?= $pelatihan ?></td>
+                                <td>: <?= $mapel_id ?></td>
                             </tr>
                             <tr>
                                 <td>Nilai</td>
