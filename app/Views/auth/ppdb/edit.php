@@ -108,7 +108,7 @@
                         </select>
                         <small>*Klik foto untuk melihat detail.</small>
                     </div>
-                    <div class="form-group col-md-6 col-12">
+                    <div class="form-group col-md-3 col-12">
                         <label>pelatihan</label>
                         <select name="mapel_id" id="mapel_id" class="form-control">
                             <option Disabled=true Selected=true></option>
@@ -118,11 +118,29 @@
                         </select>
                     </div>
 
-                    <div class="form-group col-md-6 col-12">
+                    <div class="form-group col-md-2 col-12">
                         <label>nilai</label>
                         <input type="text" class="form-control" id="nilai" value="<?= $nilai ?>" name="nilai">
 
                     </div>
+                    <div class="form-group col-md-4 col-12">
+                        <label>waktu</label>
+                        <input type="datetime-local" class="form-control" id="waktu" value="<?= $waktu ?>" name="waktu">
+                        <small><?= $waktu ?></small>
+                    </div>
+
+
+                    <div class="form-group col-md-3 col-12">
+                        <label>kelas</label>
+                        <select name="kelas_id" id="kelas_id" class="form-control">
+                            <option Disabled=true Selected=true></option>
+                            <?php foreach ($kelas as $key => $data) { ?>
+                                <option value="<?= $data['kelas_id'] ?>" <?php if ($data['kelas_id'] == $kelas_id) echo "selected"; ?>><?= $data['nama_kelas'] ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+
+
                 </div>
 
             </div>

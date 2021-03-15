@@ -14,7 +14,8 @@ class Siswa extends BaseController
         }
         $data = [
             'title' => 'Siswa - SMA Jujutsu',
-            'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
+            'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll(),
+            'kelas' => $this->kelas->orderBy('nama_kelas', 'ASC')->findAll()
         ];
         return view('auth/siswa/index', $data);
     }
@@ -25,7 +26,8 @@ class Siswa extends BaseController
             $data = [
                 'title' => 'List Siswa - SMA Jujutsu',
                 'list' => $this->siswa->list(),
-                'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
+                'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll(),
+                'kelas' => $this->kelas->orderBy('nama_kelas', 'ASC')->findAll()
 
             ];
             $msg = [
@@ -909,7 +911,8 @@ class Siswa extends BaseController
     {
         $data = [
             'title' => 'List Peserta PPDB - SMA Jujutsu',
-            'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
+            'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll(),
+            'kelas' => $this->kelas->orderBy('nama_kelas', 'ASC')->findAll()
         ];
         return view('auth/ppdb/index', $data);
     }
@@ -920,6 +923,7 @@ class Siswa extends BaseController
             $data = [
                 'title' => 'List Peserta PPDB - SMA Jujutsu',
                 'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll(),
+                'kelas' => $this->kelas->orderBy('nama_kelas', 'ASC')->findAll(),
                 'list' => $this->ppdb->orderBy('ppdb_id', 'ASC')->findAll()
             ];
             $msg = [
@@ -955,8 +959,11 @@ class Siswa extends BaseController
                 'foto_ijazah'   => $list['foto_ijazah'],
                 'status'        => $list['status'],
                 'mapel_id'        => $list['mapel_id'],
+                'kelas_id'        => $list['kelas_id'],
                 'nilai'        => $list['nilai'],
-                'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
+                'waktu'        => $list['waktu'],
+                'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll(),
+                'kelas' => $this->kelas->orderBy('nama_kelas', 'ASC')->findAll()
 
             ];
             $msg = [
@@ -986,8 +993,10 @@ class Siswa extends BaseController
                 'no_telp' => $this->request->getVar('no_telp'),
                 'status' => $this->request->getVar('status'),
                 'mapel_id' => $this->request->getVar('mapel_id'),
-                'nilai' => $this->request->getVar('nilai'),
-                'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
+                'kelas_id' => $this->request->getVar('kelas_id'),
+                'waktu' => $this->request->getVar('waktu'),
+                'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll(),
+                'kelas' => $this->kelas->orderBy('nama_kelas', 'ASC')->findAll()
             ];
 
             $ppdb_id = $this->request->getVar('ppdb_id');

@@ -151,7 +151,7 @@ $konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
 
                             <h3>Finish</h3>
                             <fieldset class="form-input">
-                                <small class="text-danger">*Jika gagal submit maka cek kembali data anda!</small><br><br>
+                                <small class="text-danger">*Jika gagal submit maka cek kembali data anda!</small><br>
 
                                 <label for="asal_sekolah">Asal Sekolah*</label>
                                 <input id="asal_sekolah" name="asal_sekolah" type="text" class="form-control required">
@@ -174,8 +174,8 @@ $konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
                                     <option value="IPS">IPS</option>
                                 </select><br>
 
-                                <label for="pelatihan">pelatihan *</label>
-                                <select name="pelatihan" id="pelatihan" class="form-control required">
+                                <label for="mapel_id">pelatihan *</label>
+                                <select name="mapel_id" id="mapel_id" class="form-control required">
                                     <option Disabled=true Selected=true></option>
                                     <?php foreach ($mapel as $key => $data) { ?>
                                         <option value="<?= $data['mapel_id'] ?>"><?= $data['nama_mapel'] ?></option>
@@ -185,6 +185,8 @@ $konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
                                 <label>Terms and Conditions</label><br>
                                 <input id="acceptTerms-2" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms-2">I agree with the Terms and Conditions.</label>
                                 <input type="hidden" id="nilai" name="nilai" value="0">
+                                <input type="hidden" id="kelas_id" name="kelas_id" value="27">
+                                <input type="hidden" id="waktu" name="waktu" value="0">
                             </fieldset>
                         </form>
                     </div>
@@ -390,10 +392,12 @@ $konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
                         jurusan: $('select#jurusan').val(),
                         foto_siswa: 'default.png',
                         foto_ijazah: 'default.png',
-                        pelatihan: $('select#pelatihan').val(),
+                        mapel_id: $('select#mapel_id').val(),
                         tgl_daftar: date,
                         status: 'Proses',
                         nilai: $('input#nilai').val(),
+                        waktu: $('input#waktu').val(),
+                        kelas_id: $('input#kelas_id').val(),
                     },
                     dataType: "json",
                     success: function(response) {

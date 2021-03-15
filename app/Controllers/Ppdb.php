@@ -13,7 +13,8 @@ class Ppdb extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Pendaftaran - SMA Jujutsu',
+            'title' => 'Pendaftaran ',
+            'kelas' => $this->kelas->orderBy('nama_kelas', 'ASC')->findAll(),
             'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
         ];
         return view('ppdb/daftar/list', $data);
@@ -138,8 +139,22 @@ class Ppdb extends BaseController
                         'required' => '{field} tidak boleh kosong',
                     ]
                 ],
+                'kelas_id' => [
+                    'label' => 'kelas',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong',
+                    ]
+                ],
                 'nilai' => [
                     'label' => 'nilai',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong',
+                    ]
+                ],
+                'waktu' => [
+                    'label' => 'waktu',
                     'rules' => 'required',
                     'errors' => [
                         'required' => '{field} tidak boleh kosong',
@@ -166,6 +181,8 @@ class Ppdb extends BaseController
                         'jurusan' => $validation->getError('jurusan'),
                         'mapel_id' => $validation->getError('mapel_id'),
                         'nilai' => $validation->getError('nilai'),
+                        'waktu' => $validation->getError('waktu'),
+                        'kelas_id' => $validation->getError('kelas_id'),
                     ]
                 ];
             } else {
@@ -191,6 +208,8 @@ class Ppdb extends BaseController
                     'status' => $this->request->getVar('status'),
                     'mapel_id' => $this->request->getVar('mapel_id'),
                     'nilai' => $this->request->getVar('nilai'),
+                    'waktu' => $this->request->getVar('waktu'),
+                    'kelas_id' => $this->request->getVar('kelas_id'),
                 ];
 
                 $this->ppdb->insert($simpandata);
@@ -210,7 +229,7 @@ class Ppdb extends BaseController
             return redirect()->to('/ppdb/profile');
         }
         $data = [
-            'title' => 'Login PPDB - SMA Jujutsu',
+            'title' => 'Login PPDB ',
         ];
         return view('ppdb/login/login', $data);
     }
@@ -303,7 +322,7 @@ class Ppdb extends BaseController
         $id = session()->get('ppdb_id');
         $list =  $this->ppdb->find($id);
         $data = [
-            'title' => 'Ubah Password Peserta - SMA Jujutsu',
+            'title' => 'Ubah Password Peserta ',
             'ppdb_id'            => $list['ppdb_id'],
         ];
         return view('ppdb/login/ubahpassword', $data);
@@ -396,9 +415,12 @@ class Ppdb extends BaseController
             'foto_siswa'         => $list['foto_siswa'],
             'foto_ijazah'        => $list['foto_ijazah'],
             'status'             => $list['status'],
-            'mapel_id'          => $list['mapel_id'],
+            'mapel_id'           => $list['mapel_id'],
+            'kelas_id'           => $list['kelas_id'],
             'nilai'              => $list['nilai'],
-            'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
+            'waktu'              => $list['waktu'],
+            'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll(),
+            'kelas' => $this->kelas->orderBy('nama_kelas', 'ASC')->findAll()
         ];
         return view('ppdb/login/profile', $data);
     }
@@ -514,8 +536,22 @@ class Ppdb extends BaseController
                         'required' => '{field} tidak boleh kosong',
                     ]
                 ],
+                'kelas_id' => [
+                    'label' => 'kelas',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong',
+                    ]
+                ],
                 'nilai' => [
                     'label' => 'nilai',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong',
+                    ]
+                ],
+                'waktu' => [
+                    'label' => 'waktu',
                     'rules' => 'required',
                     'errors' => [
                         'required' => '{field} tidak boleh kosong',
@@ -541,6 +577,8 @@ class Ppdb extends BaseController
                         'jurusan' => $validation->getError('jurusan'),
                         'mapel_id' => $validation->getError('mapel_id'),
                         'nilai' => $validation->getError('nilai'),
+                        'waktu' => $validation->getError('waktu'),
+                        'kelas_id' => $validation->getError('kelas_id'),
                     ]
                 ];
             } else {
@@ -561,7 +599,10 @@ class Ppdb extends BaseController
                     'jurusan' => $this->request->getVar('jurusan'),
                     'mapel_id' => $this->request->getVar('mapel_id'),
                     'nilai' => $this->request->getVar('nilai'),
-                    'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
+                    'waktu' => $this->request->getVar('waktu'),
+                    'kelas_id' => $this->request->getVar('kelas_id'),
+                    'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll(),
+                    'kelas' => $this->kelas->orderBy('nama_kelas', 'ASC')->findAll()
                 ];
                 $ppdb_id = $this->request->getVar('ppdb_id');
                 $this->ppdb->update($ppdb_id, $simpandata);
@@ -722,7 +763,7 @@ class Ppdb extends BaseController
         if (!isset($list)) return redirect()->to('/ppdb');
 
         $data = [
-            'title'          => 'PPDB - SMA Jujutsu',
+            'title'          => 'PPDB ',
             'ppdb_id'        => $list->ppdb_id,
             'nisn'           => $list->nisn,
             'nama_lengkap'   => $list->nama_lengkap,
@@ -737,7 +778,10 @@ class Ppdb extends BaseController
             'tmp_lahir'      => $list->tmp_lahir,
             'mapel_id'      => $list->nama_mapel,
             'nilai'        => $list->nilai,
-            'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
+            'waktu'        => $list->waktu,
+            'kelas_id'      => $list->nama_kelas,
+            'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll(),
+            'kelas' => $this->kelas->orderBy('nama_kelas', 'ASC')->findAll()
 
         ];
         return view('ppdb/login/cetak', $data);

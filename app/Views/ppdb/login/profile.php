@@ -214,7 +214,7 @@
                         <label> <i class="mdi mdi-shield-check-outline"></i>
                             mapel_id
                         </label>
-                        <select name="mapel_id" id="mapel_id" class="form-control">
+                        <select name="mapel_id" id="mapel_id" class="form-control" disabled>
                             <option Disabled=true Selected=true></option>
                             <?php foreach ($mapel as $key => $data) { ?>
                                 <option value="<?= $data['mapel_id'] ?>" <?php if ($data['mapel_id'] == $mapel_id) echo "selected"; ?>><?= $data['nama_mapel'] ?></option>
@@ -226,11 +226,32 @@
                         <label> <i class="mdi mdi-alpha-j-circle-outline"></i>
                             nilai
                         </label>
-                        <input type="text" id="nilai" name="nilai" value="<?= esc($nilai) ?>" class="form-control" readonly>
+                        <input type="text" id="nilai" name="nilai" value="<?= esc($nilai) ?>   " class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6 col-12">
+                        <label> <i class="mdi mdi-shield-check-outline"></i>
+                            kelas
+                        </label>
+                        <select name="kelas_id" id="kelas_id" class="form-control" disabled>
+                            <option Disabled=true Selected=true></option>
+                            <?php foreach ($kelas as $key => $data) { ?>
+                                <option value="<?= $data['kelas_id'] ?>" <?php if ($data['kelas_id'] == $kelas_id) echo "selected"; ?>><?= $data['nama_kelas'] ?></option>
+                            <?php } ?>
+                        </select>
                     </div>
 
+                    <div class="form-group col-md-6 col-12">
+                        <label> <i class="mdi mdi-alpha-j-circle-outline"></i>
+                            waktu
+                        </label>
+                        <input type="text" id="waktu" name="waktu" value="<?= esc($waktu) ?>   " class="form-control" readonly>
+                    </div>
 
                 </div>
+
+
 
                 <button class="btn btn-primary btnsimpan"><i class="mdi mdi-content-save-all"></i> Update</button>
             </div>
@@ -285,6 +306,8 @@
                 nama_ibu: $('input#nama_ibu').val(),
                 mapel_id: $('select#mapel_id').val(),
                 nilai: $('input#nilai').val(),
+                waktu: $('input#waktu').val(),
+                kelas_id: $('select#kelas_id').val(),
             },
             dataType: "json",
             beforeSend: function() {
