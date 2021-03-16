@@ -16,7 +16,7 @@ class Home extends BaseController
 		$gallery = $this->gallery->published();
 		$kategori = $this->kategori->list();
 		$data = [
-			'title' => 'SMA Jujutsu - Selamat Datang!',
+			'title' => 'Selamat Datang!',
 			'staf' => $staf,
 			'guru' => $guru,
 			'siswa' => $siswa,
