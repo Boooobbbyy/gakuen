@@ -7,7 +7,7 @@ class Gallery extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Gallery - SMA Jujutsu'
+            'title' => 'Gallery '
         ];
         return view('auth/gallery/index', $data);
     }
@@ -16,7 +16,7 @@ class Gallery extends BaseController
     {
         if ($this->request->isAJAX()) {
             $data = [
-                'title'          => 'Gallery - SMA Jujutsu',
+                'title'          => 'Gallery ',
                 'list'           => $this->gallery->list(),
                 'jumlahfoto'     => $this->gallery->jumlahfoto(),
             ];

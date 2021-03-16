@@ -9,7 +9,7 @@ $konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
 <html lang="en">
 
 <head>
-    <title> Pendaftaran - SMA Jujutsu</title>
+    <title> Pendaftaran </title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,7 +64,7 @@ $konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
                                 <img class="d-block img-fluid" src="<?= base_url('assets/ppdb') ?>/images/slider-02.jpg" alt="First slide">
                                 <div class="carousel-caption d-none d-md-block">
                                     <div class="banner-text">
-                                        <h2>PPDB <br> SMA Jujutsu</h2>
+                                        <h2>PPDB <br><?= $konfigurasi['nama_web'] ?></h2>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@ $konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
                                 <img class="d-block img-fluid" src="<?= base_url('assets/ppdb') ?>/images/slider-03.jpg" alt="First slide">
                                 <div class="carousel-caption d-none d-md-block">
                                     <div class="banner-text">
-                                        <h2>PPDB <br> SMA Jujutsu</h2>
+                                        <h2>PPDB <br> <?= $konfigurasi['nama_web'] ?></h2>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
                                     </div>
                                 </div>
@@ -194,7 +194,7 @@ $konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="copyright text-center">All Rights Reserved. &copy; 2021 <a href="/">SMA Jujutsu</a> Design By :
+                    <p class="copyright text-center">All Rights Reserved. &copy; 2021 <a href="/"><?= $konfigurasi['nama_web'] ?></a> Design By :
                         <a href="https://html.design/">html design</a>
                     </p>
                 </div>

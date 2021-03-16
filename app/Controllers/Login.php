@@ -17,7 +17,7 @@ class Login extends BaseController
             return redirect()->to('/auth/dashboard');
         }
         $data = [
-            'title' => 'Login - SMA Jujutsu'
+            'title' => 'Login '
         ];
         return view('auth/login', $data);
     }

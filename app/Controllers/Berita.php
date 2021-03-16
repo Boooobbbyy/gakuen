@@ -7,7 +7,7 @@ class Berita extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Berita - SMA Jujutsu'
+            'title' => 'Berita '
         ];
         return view('auth/berita/index', $data);
     }
@@ -16,7 +16,7 @@ class Berita extends BaseController
     {
         if ($this->request->isAJAX()) {
             $data = [
-                'title' => 'Berita - SMA Jujutsu',
+                'title' => 'Berita ',
                 'list' => $this->berita->list()
 
 

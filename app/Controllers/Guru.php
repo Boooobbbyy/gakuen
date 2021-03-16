@@ -10,7 +10,7 @@ class Guru extends BaseController
             return redirect()->to('dashboard');
         }
         $data = [
-            'title' => 'Guru - SMA Jujutsu'
+            'title' => 'Guru'
         ];
         return view('auth/guru/index', $data);
     }
@@ -19,7 +19,7 @@ class Guru extends BaseController
     {
         if ($this->request->isAJAX()) {
             $data = [
-                'title' => 'List Guru - SMA Jujutsu',
+                'title' => 'List Guru',
                 'list' => $this->guru->list()
 
 
@@ -375,7 +375,7 @@ class Guru extends BaseController
             return redirect()->to('/dashboard');
         }
         $data = [
-            'title' => 'Mapel - SMA Jujutsu'
+            'title' => 'Mapel'
         ];
         return view('auth/mapel/index', $data);
     }

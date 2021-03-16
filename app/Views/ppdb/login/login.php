@@ -26,7 +26,7 @@ $konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
     <!-- Style -->
     <link rel="stylesheet" href="<?= base_url('assets/ppdb/login') ?>/css/style.css">
 
-    <title>Login PPDB - SMA Jujutsu</title>
+    <title>Login PPDB </title>
 </head>
 
 <body>

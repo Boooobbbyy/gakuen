@@ -13,7 +13,7 @@ class Siswa extends BaseController
             return redirect()->to('/dashboard');
         }
         $data = [
-            'title' => 'Siswa - SMA Jujutsu',
+            'title' => 'Siswa ',
             'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll(),
             'kelas' => $this->kelas->orderBy('nama_kelas', 'ASC')->findAll()
         ];
@@ -24,7 +24,7 @@ class Siswa extends BaseController
     {
         if ($this->request->isAJAX()) {
             $data = [
-                'title' => 'List Siswa - SMA Jujutsu',
+                'title' => 'List Siswa ',
                 'list' => $this->siswa->list(),
                 'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll(),
                 'kelas' => $this->kelas->orderBy('nama_kelas', 'ASC')->findAll()
@@ -332,7 +332,7 @@ class Siswa extends BaseController
             return redirect()->to('dashboard');
         }
         $data = [
-            'title' => 'Kelas - SMA Jujutsu'
+            'title' => 'Kelas '
         ];
         return view('auth/kelas/index', $data);
     }
@@ -910,7 +910,7 @@ class Siswa extends BaseController
     public function ppdb()
     {
         $data = [
-            'title' => 'List Peserta PPDB - SMA Jujutsu',
+            'title' => 'List Peserta PPDB ',
             'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll(),
             'kelas' => $this->kelas->orderBy('nama_kelas', 'ASC')->findAll()
         ];
@@ -921,7 +921,7 @@ class Siswa extends BaseController
     {
         if ($this->request->isAJAX()) {
             $data = [
-                'title' => 'List Peserta PPDB - SMA Jujutsu',
+                'title' => 'List Peserta PPDB ',
                 'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll(),
                 'kelas' => $this->kelas->orderBy('nama_kelas', 'ASC')->findAll(),
                 'list' => $this->ppdb->orderBy('ppdb_id', 'ASC')->findAll()

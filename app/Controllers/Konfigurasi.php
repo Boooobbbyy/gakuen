@@ -11,7 +11,7 @@ class Konfigurasi extends BaseController
         }
         $list =  $this->konfigurasi->orderBy('konfigurasi_id')->first();
         $data = [
-            'title'             => 'Konfigurasi Web - SMA Jujutsu',
+            'title'             => 'Konfigurasi Web',
             'konfigurasi'       => $this->konfigurasi->list(),
             'konfigurasi_id'    => $list['konfigurasi_id'],
             'nama_web'          => $list['nama_web'],
@@ -282,7 +282,7 @@ class Konfigurasi extends BaseController
     public function user()
     {
         $data = [
-            'title' => 'Konfigurasi User - SMA Jujutsu'
+            'title' => 'Konfigurasi User'
         ];
         return view('auth/user/index', $data);
     }
@@ -291,7 +291,7 @@ class Konfigurasi extends BaseController
     {
         if ($this->request->isAJAX()) {
             $data = [
-                'title' => 'Konfigurasi user - SMA Jujutsu',
+                'title' => 'Konfigurasi user',
                 'list' => $this->user->list()
             ];
             $msg = [

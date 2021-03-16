@@ -15,7 +15,7 @@ class Staf extends BaseController
             return redirect()->to('dashboard');
         }
         $data = [
-            'title' => 'Staf - SMA Jujutsu',
+            'title' => 'Staf ',
         ];
         return view('auth/staf/index', $data);
     }
@@ -24,7 +24,7 @@ class Staf extends BaseController
     {
         if ($this->request->isAJAX()) {
             $data = [
-                'title' => 'List Staf - SMA Jujutsu',
+                'title' => 'List Staf ',
                 'list' => $this->staf->orderBy('staf_id', 'ASC')->findAll()
 
             ];

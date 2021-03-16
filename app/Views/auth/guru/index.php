@@ -2,7 +2,7 @@
 
 <?= $this->section('judul') ?>
 <div class="col-sm-6">
-    <h4 class="page-title">Guru - SMA Jujutsu</h4>
+    <h4 class="page-title">Guru</h4>
 </div>
 <div class="col-sm-6">
     <ol class="breadcrumb float-right">

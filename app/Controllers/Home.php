@@ -75,7 +75,7 @@ class Home extends BaseController
 		$konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
 		$kategori = $this->kategori->list();
 		$data = [
-			'title' => 'Cek SPP - SMA Jujutsu',
+			'title' => 'Cek SPP',
 			'konfigurasi' => $konfigurasi,
 			'kategori' => $kategori,
 		];
@@ -92,7 +92,7 @@ class Home extends BaseController
 			$konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
 			$kategori = $this->kategori->list();
 			$data = [
-				'title' => 'Cek SPP - SMA Jujutsu',
+				'title' => 'Cek SPP',
 				'konfigurasi' => $konfigurasi,
 				'kategori' => $kategori,
 				'spp'	=> $check,
@@ -109,7 +109,7 @@ class Home extends BaseController
 		$konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
 		$kategori = $this->kategori->list();
 		$data = [
-			'title' => 'Pengumuman Kelulusan - SMA Jujutsu',
+			'title' => 'Pengumuman Kelulusan',
 			'konfigurasi' => $konfigurasi,
 			'kategori' => $kategori,
 		];
@@ -125,7 +125,7 @@ class Home extends BaseController
 			$konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
 			$kategori = $this->kategori->list();
 			$data = [
-				'title' => 'Pengumuman Kelulusan - SMA Jujutsu',
+				'title' => 'Pengumuman Kelulusan',
 				'konfigurasi' => $konfigurasi,
 				'kategori' => $kategori,
 				'kelulusan'	=> $check,
@@ -142,7 +142,7 @@ class Home extends BaseController
 		$konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
 		$kategori = $this->kategori->list();
 		$data = [
-			'title' => 'List Staf - SMA Jujutsu',
+			'title' => 'List Staf',
 			'konfigurasi' => $konfigurasi,
 			'kategori' => $kategori,
 			'list_staf' => $this->staf->paginate(3, 'staf'),
@@ -156,7 +156,7 @@ class Home extends BaseController
 		$konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
 		$kategori = $this->kategori->list();
 		$data = [
-			'title' => 'List Guru - SMA Jujutsu',
+			'title' => 'List Guru',
 			'konfigurasi' => $konfigurasi,
 			'kategori' => $kategori,
 			'list_guru' => $this->guru->join('mapel', 'mapel.mapel_id = guru.mapel_id')->paginate(3, 'guru'),
@@ -170,7 +170,7 @@ class Home extends BaseController
 		$konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
 		$kategori = $this->kategori->list();
 		$data = [
-			'title' => 'List Gallery - SMA Jujutsu',
+			'title' => 'List Gallery',
 			'konfigurasi' => $konfigurasi,
 			'kategori' => $kategori,
 			'list_gallery' => $this->gallery->paginate(4, 'gallery'),
@@ -184,7 +184,7 @@ class Home extends BaseController
 		$konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
 		$kategori = $this->kategori->list();
 		$data = [
-			'title' => 'List Berita - SMA Jujutsu',
+			'title' => 'List Berita',
 			'konfigurasi' => $konfigurasi,
 			'kategori' => $kategori,
 			'list_berita' => $this->berita

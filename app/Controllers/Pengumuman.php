@@ -10,7 +10,7 @@ class Pengumuman extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Pengumuman - SMA Jujutsu'
+            'title' => 'Pengumuman '
         ];
         return view('auth/pengumuman/index', $data);
     }
@@ -19,7 +19,7 @@ class Pengumuman extends BaseController
     {
         if ($this->request->isAJAX()) {
             $data = [
-                'title' => 'Pengumuman - SMA Jujutsu',
+                'title' => 'Pengumuman ',
                 'list' => $this->pengumuman->orderBy('pengumuman_id', 'ASC')->findAll()
             ];
             $msg = [
@@ -169,7 +169,7 @@ class Pengumuman extends BaseController
             return redirect()->to('/dashboard');
         }
         $data = [
-            'title' => 'Pengumuman Kelulusan - SMA Jujutsu'
+            'title' => 'Pengumuman Kelulusan '
         ];
         return view('auth/kelulusan/index', $data);
     }
@@ -178,7 +178,7 @@ class Pengumuman extends BaseController
     {
         if ($this->request->isAJAX()) {
             $data = [
-                'title' => 'Pengumuman Kelulusan - SMA Jujutsu',
+                'title' => 'Pengumuman Kelulusan ',
             ];
             $msg = [
                 'data' => view('auth/kelulusan/list', $data)

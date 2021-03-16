@@ -56,7 +56,7 @@ $konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
 <body>
     <center><img src="<?= base_url('img/konfigurasi/logo/' . $konfigurasi['logo']) ?>" width="75">
     </center>
-    <h4 class="text-center">SMA Jujutsu</h4>
+    <h4 class="text-center"><?= $konfigurasi['nama_web'] ?></h4>
     <h6 class="text-center"><?= $konfigurasi['alamat'] ?></h6>
     <hr>
     <h5 class="text-center"><u>Penerimaan Peserta Didik Baru</u></h5>

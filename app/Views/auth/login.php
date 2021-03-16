@@ -39,7 +39,7 @@ $konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
                 <div class="text-center m-t-0 m-b-15">
                     <a href="index.html" class="logo logo-admin"><img src="<?= base_url('img/konfigurasi/logo/' . $konfigurasi['logo']) ?>" alt="" height="35"></a>
                 </div>
-                <h5 class="font-18 text-center">Halaman Login - SMA Jujutsu</h5>
+                <h5 class="font-18 text-center">Halaman Login </h5>
                 <hr>
                 <?= form_open('login/validasi', ['class' => 'formlogin']) ?>
                 <?= csrf_field() ?>
