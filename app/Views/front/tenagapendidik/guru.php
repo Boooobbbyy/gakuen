@@ -13,7 +13,7 @@
         <li class="drop-down active"><a href="#">Tenaga Pendidik</a>
             <ul>
                 <li><a href="<?= base_url('home/staf') ?>">Staf</a></li>
-                <li class="active"><a href="<?= base_url('home/guru') ?>">Guru</a></li>
+                <li class="active"><a href="<?= base_url('home/guru') ?>">Dosen</a></li>
             </ul>
         </li>
         <li class="drop-down"><a href="#">Siswa</a>
@@ -32,7 +32,7 @@
 <div class="trainers">
     <div class="container" data-aos="fade-up">
         <div class="section-title">
-            <h2>Guru</h2>
+            <h2>Dosen</h2>
         </div>
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
             <?php

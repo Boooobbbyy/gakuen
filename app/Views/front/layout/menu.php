@@ -42,7 +42,7 @@
 
             <div class="col-lg-3 col-6 text-center">
                 <span data-toggle="counter-up"><?= $guru['guru_id'] ?></span>
-                <p>Guru</p>
+                <p>Dosen</p>
             </div>
 
             <div class="col-lg-3 col-6 text-center">

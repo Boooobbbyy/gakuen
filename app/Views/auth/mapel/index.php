@@ -6,8 +6,8 @@
 </div>
 <div class="col-sm-6">
     <ol class="breadcrumb float-right">
-        <li class="breadcrumb-item"><a href="javascript:void(0);">Guru</a></li>
-        <li class="breadcrumb-item"><a href="<?= site_url('auth/guru') ?>">List Guru</a></li>
+        <li class="breadcrumb-item"><a href="javascript:void(0);">Dosen</a></li>
+        <li class="breadcrumb-item"><a href="<?= site_url('auth/guru') ?>">List Dosen</a></li>
         <li class="breadcrumb-item active">Mapel</li>
     </ol>
 </div>

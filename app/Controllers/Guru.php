@@ -10,7 +10,7 @@ class Guru extends BaseController
             return redirect()->to('dashboard');
         }
         $data = [
-            'title' => 'Guru'
+            'title' => 'Dosen'
         ];
         return view('auth/guru/index', $data);
     }
@@ -19,7 +19,7 @@ class Guru extends BaseController
     {
         if ($this->request->isAJAX()) {
             $data = [
-                'title' => 'List Guru',
+                'title' => 'List Dosen',
                 'list' => $this->guru->list()
 
 
@@ -35,7 +35,7 @@ class Guru extends BaseController
     {
         if ($this->request->isAJAX()) {
             $data = [
-                'title' => 'Tambah Guru',
+                'title' => 'Tambah Dosen',
                 'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
             ];
             $msg = [
@@ -142,7 +142,7 @@ class Guru extends BaseController
             $list =  $this->guru->find($guru_id);
             $mapel =  $this->mapel->list();
             $data = [
-                'title'         => 'Edit Guru',
+                'title'         => 'Edit Dosen',
                 'mapel'         => $mapel,
                 'guru_id'       => $list['guru_id'],
                 'nip'           => $list['nip'],
@@ -299,7 +299,7 @@ class Guru extends BaseController
             $guru_id = $this->request->getVar('guru_id');
             $list =  $this->guru->find($guru_id);
             $data = [
-                'title' => 'Upload Foto Guru',
+                'title' => 'Upload Foto Dosen',
                 'list'  => $list,
                 'guru_id' => $guru_id
             ];
@@ -384,7 +384,7 @@ class Guru extends BaseController
     {
         if ($this->request->isAJAX()) {
             $data = [
-                'title' => 'Guru - Mapel',
+                'title' => 'Dosen - Mapel',
                 'list' => $this->mapel->orderBy('mapel_id', 'ASC')->findAll()
             ];
             $msg = [

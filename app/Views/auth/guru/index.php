@@ -2,19 +2,19 @@
 
 <?= $this->section('judul') ?>
 <div class="col-sm-6">
-    <h4 class="page-title">Guru</h4>
+    <h4 class="page-title">Dosen</h4>
 </div>
 <div class="col-sm-6">
     <ol class="breadcrumb float-right">
-        <li class="breadcrumb-item"><a href="javascript:void(0);">Guru</a></li>
-        <li class="breadcrumb-item active">List Guru</li>
+        <li class="breadcrumb-item"><a href="javascript:void(0);">Dosen</a></li>
+        <li class="breadcrumb-item active">List Dosen</li>
         <li class="breadcrumb-item"><a href="<?= site_url('auth/guru/mapel') ?>">Mapel</a></li>
     </ol>
 </div>
 <?= $this->endSection('judul') ?>
 
 <?= $this->section('isi') ?>
-<p class="sub-title"> <button type="button" class="btn btn-primary btn-sm tambahguru"><i class=" fa fa-plus-circle"></i> Tambah Guru</button>
+<p class="sub-title"> <button type="button" class="btn btn-primary btn-sm tambahguru"><i class=" fa fa-plus-circle"></i> Tambah Dosen</button>
     <br>
     <small> <i class="fa fa-info-circle"></i> Klik foto untuk memperbarui foto!</small>
 </p>

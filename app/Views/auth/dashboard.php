@@ -78,7 +78,7 @@
                         <i class="mdi mdi-account-group bg-success text-white"></i>
                     </div>
                     <div>
-                        <h5 class="font-16">Guru</h5>
+                        <h5 class="font-16">Dosen</h5>
                     </div>
                     <h3 class="mt-4"><?= $guru['guru_id'] ?></h3>
                 </div>
@@ -112,7 +112,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-xl-3">
+        <div class="col-sm-6 col-xl-4">
             <div class="card">
                 <div class="card-heading p-4">
                     <div class="mini-stat-icon float-right">
@@ -127,7 +127,7 @@
         </div>
 
     <?php } ?>
-    <div class="col-sm-6 col-xl-3">
+    <div class="col-sm-6 col-xl-4">
         <div class="card">
             <div class="card-heading p-4">
                 <div class="mini-stat-icon float-right">
@@ -141,7 +141,7 @@
         </div>
     </div>
 
-    <div class="col-sm-6 col-xl-3">
+    <div class="col-sm-6 col-xl-4">
         <div class="card">
             <div class="card-heading p-4">
                 <div class="mini-stat-icon float-right">
@@ -156,19 +156,6 @@
     </div>
 
 
-    <div class="col-sm-6 col-xl-3">
-        <div class="card">
-            <div class="card-heading p-4">
-                <div class="mini-stat-icon float-right">
-                    <i class="mdi mdi-bullhorn-outline bg-secondary text-white"></i>
-                </div>
-                <div>
-                    <h5 class="font-16">Pengumuman</h5>
-                </div>
-                <h3 class="mt-4"><?= $pengumuman['pengumuman_id'] ?></h3>
-            </div>
-        </div>
-    </div>
     <?php if (session()->get('level') == 1) { ?>
 
         <div class="col-sm-6 col-xl-3">

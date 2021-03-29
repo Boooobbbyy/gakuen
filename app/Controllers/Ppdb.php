@@ -229,7 +229,7 @@ class Ppdb extends BaseController
             return redirect()->to('/ppdb/profile');
         }
         $data = [
-            'title' => 'Login PPDB ',
+            'title' => 'Login PMB ',
         ];
         return view('ppdb/login/login', $data);
     }
@@ -396,7 +396,7 @@ class Ppdb extends BaseController
         $id = session()->get('ppdb_id');
         $list =  $this->ppdb->find($id);
         $data = [
-            'title'              => 'PPDB - Profile',
+            'title'              => 'PMB - Profile',
             'ppdb_id'            => $list['ppdb_id'],
             'nisn'               => $list['nisn'],
             'nama_lengkap'       => $list['nama_lengkap'],
@@ -763,7 +763,7 @@ class Ppdb extends BaseController
         if (!isset($list)) return redirect()->to('/ppdb');
 
         $data = [
-            'title'          => 'PPDB ',
+            'title'          => 'PMB ',
             'ppdb_id'        => $list->ppdb_id,
             'nisn'           => $list->nisn,
             'nama_lengkap'   => $list->nama_lengkap,

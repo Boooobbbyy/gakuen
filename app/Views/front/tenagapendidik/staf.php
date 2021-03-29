@@ -13,7 +13,7 @@
         <li class="drop-down active"><a href="#">Tenaga Pendidik</a>
             <ul>
                 <li class="active"><a href="<?= base_url('home/staf') ?>">Staf</a></li>
-                <li><a href="<?= base_url('home/guru') ?>">Guru</a></li>
+                <li><a href="<?= base_url('home/guru') ?>">Dosen</a></li>
             </ul>
         </li>
         <li class="drop-down"><a href="#">Siswa</a>

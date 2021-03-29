@@ -64,9 +64,9 @@
         </a>
     </li>
     <li>
-        <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-account-group"></i> <span> Guru <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span> </a>
+        <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-account-group"></i> <span> Dosen <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span> </a>
         <ul class="submenu">
-            <li><a href="<?= base_url('auth/guru') ?>">List Guru</a></li>
+            <li><a href="<?= base_url('auth/guru') ?>">List Dosen</a></li>
             <li><a href="<?= base_url('auth/guru/mapel') ?>">Mapel</a></li>
         </ul>
     </li>
@@ -96,15 +96,7 @@
             <li><a href="<?= base_url('auth/berita') ?>">List Berita</a></li>
         </ul>
     </li>
-    <li>
-        <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-bullhorn-outline"></i><span> Pengumuman <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
-        <ul class="submenu">
-            <li><a href="<?= base_url('auth/pengumuman') ?>">Pengumuman Umum</a></li>
-            <?php if (session()->get('level') == 2) { ?>
-                <li><a href="<?= base_url('auth/pengumuman/kelulusan') ?>">Pengumuman Kelulusan</a></li>
-            <?php } ?>
-        </ul>
-    </li>
+
 <?php } ?>
 <?php if (session()->get('level') == 3) { ?>
     <li class="menu-title">Menu</li>

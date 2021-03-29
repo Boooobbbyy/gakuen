@@ -24,7 +24,7 @@ class Siswa extends BaseController
     {
         if ($this->request->isAJAX()) {
             $data = [
-                'title' => 'List Siswa ',
+                'title' => 'List Mahasiswa ',
                 'list' => $this->siswa->list(),
                 'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll(),
                 'kelas' => $this->kelas->orderBy('nama_kelas', 'ASC')->findAll()
@@ -82,7 +82,7 @@ class Siswa extends BaseController
     {
         if ($this->request->isAJAX()) {
             $data = [
-                'title' => 'Tambah Siswa',
+                'title' => 'Tambah Mahasiswa',
                 'kelas' => $this->kelas->orderBy('nama_kelas', 'ASC')->findAll()
             ];
             $msg = [
@@ -341,7 +341,7 @@ class Siswa extends BaseController
     {
         if ($this->request->isAJAX()) {
             $data = [
-                'title' => 'Siswa - Kelas',
+                'title' => 'Mahasiswa - Kelas',
                 'list' => $this->kelas->listjoin()
             ];
             $msg = [
@@ -495,7 +495,7 @@ class Siswa extends BaseController
             return redirect()->to('dashboard');
         }
         $data = [
-            'title' => 'Siswa - SPP'
+            'title' => 'Mahasiswa - SPP'
         ];
         return view('auth/spp/index', $data);
     }
@@ -504,7 +504,7 @@ class Siswa extends BaseController
     {
         if ($this->request->isAJAX()) {
             $data = [
-                'title' => 'Siswa - SPP',
+                'title' => 'Mahasiswa - SPP',
                 'list' => $this->spp->listjoin()
             ];
             $msg = [
@@ -910,7 +910,7 @@ class Siswa extends BaseController
     public function ppdb()
     {
         $data = [
-            'title' => 'List Peserta PPDB ',
+            'title' => 'List Peserta PMB ',
             'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll(),
             'kelas' => $this->kelas->orderBy('nama_kelas', 'ASC')->findAll()
         ];
@@ -921,7 +921,7 @@ class Siswa extends BaseController
     {
         if ($this->request->isAJAX()) {
             $data = [
-                'title' => 'List Peserta PPDB ',
+                'title' => 'List Peserta PMB ',
                 'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll(),
                 'kelas' => $this->kelas->orderBy('nama_kelas', 'ASC')->findAll(),
                 'list' => $this->ppdb->orderBy('ppdb_id', 'ASC')->findAll()
@@ -994,6 +994,7 @@ class Siswa extends BaseController
                 'status' => $this->request->getVar('status'),
                 'mapel_id' => $this->request->getVar('mapel_id'),
                 'kelas_id' => $this->request->getVar('kelas_id'),
+                'nilai' => $this->request->getVar('nilai'),
                 'waktu' => $this->request->getVar('waktu'),
                 'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll(),
                 'kelas' => $this->kelas->orderBy('nama_kelas', 'ASC')->findAll()

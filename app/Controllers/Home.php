@@ -156,7 +156,7 @@ class Home extends BaseController
 		$konfigurasi = $this->konfigurasi->orderBy('konfigurasi_id')->first();
 		$kategori = $this->kategori->list();
 		$data = [
-			'title' => 'List Guru',
+			'title' => 'List Dosen',
 			'konfigurasi' => $konfigurasi,
 			'kategori' => $kategori,
 			'list_guru' => $this->guru->join('mapel', 'mapel.mapel_id = guru.mapel_id')->paginate(3, 'guru'),

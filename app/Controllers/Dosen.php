@@ -10,7 +10,7 @@ class Dosen extends BaseController
             return redirect()->to('dashboard');
         }
         $data = [
-            'title' => 'dosen - STMIK METRO'
+            'title' => 'Dosen - STMIK METRO'
         ];
         return view('auth/dosen/index', $data);
     }
@@ -19,7 +19,7 @@ class Dosen extends BaseController
     {
         if ($this->request->isAJAX()) {
             $data = [
-                'title' => 'List dosen - STMIK METRO',
+                'title' => 'List Dosen - STMIK METRO',
                 'list' => $this->dosen->list()
 
 
@@ -35,7 +35,7 @@ class Dosen extends BaseController
     {
         if ($this->request->isAJAX()) {
             $data = [
-                'title' => 'Tambah dosen',
+                'title' => 'Tambah Dosen',
                 'mapel' => $this->mapel->orderBy('nama_mapel', 'ASC')->findAll()
             ];
             $msg = [
