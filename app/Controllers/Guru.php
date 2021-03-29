@@ -419,17 +419,27 @@ class Guru extends BaseController
                         'required' => '{field} tidak boleh kosong',
                         'is_unique' => '{field} tidak boleh sama',
                     ]
+                ],
+                'sem' => [
+                    'label' => 'sem',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong'
+
+                    ]
                 ]
             ]);
             if (!$valid) {
                 $msg = [
                     'error' => [
                         'nama_mapel' => $validation->getError('nama_mapel'),
+                        'sem' => $validation->getError('sem'),
                     ]
                 ];
             } else {
                 $simpandata = [
                     'nama_mapel' => $this->request->getVar('nama_mapel'),
+                    'sem' => $this->request->getVar('sem'),
                 ];
 
                 $this->mapel->insert($simpandata);
@@ -450,6 +460,7 @@ class Guru extends BaseController
                 'title'           => 'Edit Mapel',
                 'mapel_id'        => $list['mapel_id'],
                 'nama_mapel'      => $list['nama_mapel'],
+                'sem'      => $list['sem'],
             ];
             $msg = [
                 'sukses' => view('auth/mapel/edit', $data)
@@ -470,17 +481,27 @@ class Guru extends BaseController
                         'required' => '{field} tidak boleh kosong',
                         'is_unique' => '{field} tidak boleh sama',
                     ]
+                ],
+                'sem' => [
+                    'label' => 'sem',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong',
+
+                    ]
                 ]
             ]);
             if (!$valid) {
                 $msg = [
                     'error' => [
                         'nama_mapel' => $validation->getError('nama_mapel'),
+                        'sem' => $validation->getError('sem'),
                     ]
                 ];
             } else {
                 $updatedata = [
                     'nama_mapel' => $this->request->getVar('nama_mapel'),
+                    'sem' => $this->request->getVar('sem'),
                 ];
 
                 $mapel_id = $this->request->getVar('mapel_id');

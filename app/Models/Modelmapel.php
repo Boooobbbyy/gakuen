@@ -8,7 +8,7 @@ class Modelmapel extends Model
 {
     protected $table      = 'mapel';
     protected $primaryKey = 'mapel_id';
-    protected $allowedFields = ['nama_mapel'];
+    protected $allowedFields = ['nama_mapel', 'sem'];
 
     //backend
     public function list()

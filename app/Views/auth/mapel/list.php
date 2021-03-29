@@ -3,6 +3,7 @@
         <tr>
             <th>#</th>
             <th>Nama Mapel</th>
+            <th>Semester</th>
             <th>Aksi</th>
         </tr>
     </thead>
@@ -14,6 +15,7 @@
             <tr>
                 <td><?= $nomor ?></td>
                 <td><?= esc($data['nama_mapel']) ?></td>
+                <td><?= esc($data['sem']) ?></td>
                 <td>
                     <button type="button" class="btn btn-primary btn-sm" onclick="edit('<?= $data['mapel_id'] ?>')">
                         <i class="fa fa-edit"></i>

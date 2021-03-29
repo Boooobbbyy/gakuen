@@ -20,6 +20,15 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="" class="col-sm-4 col-form-label">Semester</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="sem" name="sem">
+                        <div class="invalid-feedback errorNamamapel">
+
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary btnsimpan"><i class="fa fa-share-square"></i> Simpan</button>
